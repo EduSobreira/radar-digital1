@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radar Digital Sicoob — 19 a 26 de junho de 2026</title>
+<style>
+  :root{
+    --turquesa:#00AE9D;
+    --turquesa-dark:#00897A;
+    --verde-escuro:#003641;
+    --verde-medio:#7DB61C;
+    --verde-claro:#C9D200;
+    --roxo:#49479D;
+    --branco:#FFFFFF;
+    --bg-page:#F4F7F6;
+    --bg-card:#FFFFFF;
+    --text-main:#0B2730;
+    --text-soft:#4C6066;
+    --text-faint:#7E8E92;
+    --border-soft:#E1E8E7;
+    --shadow:0 1px 2px rgba(0,54,65,0.04), 0 4px 16px rgba(0,54,65,0.06);
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Helvetica Neue',Arial,'Segoe UI',sans-serif;
+    background:var(--bg-page);
+    color:var(--text-main);
+    line-height:1.55;
+  }
+  a{color:var(--turquesa-dark);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* ======== TOP BAR ======== */
+  .topbar{
+    background:var(--verde-escuro);
+    color:#fff;
+    padding:0 32px;
+    height:64px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:50;
+  }
+  .topbar-brand{display:flex;align-items:center;gap:12px;}
+  .topbar-logo{
+    width:30px;height:30px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .topbar-title{font-size:15px;font-weight:700;letter-spacing:0.3px;}
+  .topbar-sub{font-size:11px;color:var(--turquesa);font-weight:600;letter-spacing:1.2px;text-transform:uppercase;}
+  .topbar-period{
+    font-size:12px;
+    color:#B9CBC9;
+    background:rgba(255,255,255,0.06);
+    padding:6px 14px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,0.12);
+  }
+
+  /* ======== HERO ======== */
+  .hero{
+    background:linear-gradient(135deg, var(--verde-escuro) 0%, #002730 100%);
+    color:#fff;
+    padding:64px 32px 56px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    right:-120px;top:-120px;
+    width:420px;height:420px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(0,174,157,0.25), transparent 70%);
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    left:-80px;bottom:-160px;
+    width:340px;height:340px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(73,71,157,0.22), transparent 70%);
+  }
+  .hero-inner{max-width:1080px;margin:0 auto;position:relative;z-index:2;}
+  .hero-eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;
+    color:var(--verde-claro);
+    margin-bottom:18px;
+  }
+  .hero-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--verde-claro);}
+  .hero h1{font-size:40px;margin:0 0 12px;font-weight:800;letter-spacing:-0.5px;}
+  .hero p.lede{font-size:16px;color:#C7D8D6;max-width:620px;margin:0 0 32px;}
+  .hero-meta{display:flex;gap:28px;flex-wrap:wrap;}
+  .hero-meta-item{min-width:140px;}
+  .hero-meta-label{font-size:11px;color:#8FACA8;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;}
+  .hero-meta-value{font-size:15px;font-weight:700;color:#fff;}
+
+  /* ======== TRANSPARENCY BANNER ======== */
+  .integrity-banner{
+    max-width:1080px;margin:-28px auto 0;
+    position:relative;z-index:5;
+    background:#fff;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    border-left:5px solid var(--verde-medio);
+    padding:18px 26px;
+    display:flex;
+    align-items:flex-start;
+    gap:16px;
+  }
+  .integrity-icon{
+    flex:0 0 auto;
+    width:36px;height:36px;border-radius:50%;
+    background:#EFF7E3;
+    display:flex;align-items:center;justify-content:center;
+    font-size:18px;color:var(--verde-medio);font-weight:800;
+  }
+  .integrity-text{font-size:13.5px;color:var(--text-soft);}
+  .integrity-text b{color:var(--verde-escuro);}
+
+  /* ======== LAYOUT ======== */
+  .layout{
+    max-width:1080px;margin:0 auto;
+    padding:48px 32px 100px;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:48px;
+    align-items:start;
+  }
+  .toc{
+    position:sticky;top:90px;
+    display:flex;flex-direction:column;gap:4px;
+  }
+  .toc-label{font-size:11px;font-weight:700;color:var(--text-faint);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
+  .toc a{
+    display:block;
+    font-size:13.5px;
+    color:var(--text-soft);
+    padding:8px 12px;
+    border-radius:8px;
+    font-weight:600;
+    transition:background 0.15s, color 0.15s;
+  }
+  .toc a:hover{background:#fff;color:var(--turquesa-dark);text-decoration:none;}
+  .toc a.active{background:var(--turquesa);color:#fff;}
+
+  .content{display:flex;flex-direction:column;gap:56px;min-width:0;}
+  section{scroll-margin-top:90px;}
+
+  .section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:22px;}
+  .section-num{
+    font-size:13px;font-weight:800;color:#fff;
+    background:var(--turquesa);
+    width:30px;height:30px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    flex:0 0 auto;
+  }
+  .section-head h2{font-size:23px;margin:0;color:var(--verde-escuro);font-weight:800;}
+
+  /* ======== SUMMARY GRID ======== */
+  .summary-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  .summary-card{
+    background:var(--bg-card);
+    border-radius:var(--radius);
+    border:1px solid var(--border-soft);
+    padding:18px 20px;
+  }
+  .summary-card .label{font-size:11px;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-faint);font-weight:700;margin-bottom:6px;}
+  .summary-card .value{font-size:14.5px;color:var(--text-main);font-weight:600;}
+  .summary-card.full{grid-column:1 / -1;}
+  .pill-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
+  .pill{
+    font-size:12px;font-weight:700;
+    padding:5px 12px;border-radius:20px;
+    background:#E7F6F3;color:var(--turquesa-dark);
+  }
+  .pill.alt{background:#EDEBFA;color:var(--roxo);}
+
+  .note-box{
+    background:#FFF9E8;
+    border:1px solid #F0E2A8;
+    border-radius:10px;
+    padding:14px 16px;
+    font-size:13px;
+    color:#6B5A1E;
+    margin-top:16px;
+  }
+
+  /* ======== ANALYZED LIST ======== */
+  .analyzed-list{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:10px;
+  }
+  .analyzed-item{
+    display:flex;align-items:center;gap:10px;
+    background:#fff;border:1px solid var(--border-soft);
+    border-radius:10px;padding:11px 14px;font-size:13.5px;font-weight:600;color:var(--text-main);
+  }
+  .analyzed-item .dot{width:7px;height:7px;border-radius:50%;background:var(--turquesa);flex:0 0 auto;}
+
+  /* ======== TREND CARDS ======== */
+  .group-label{
+    display:inline-block;
+    font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;
+    padding:6px 14px;border-radius:20px;
+    margin-bottom:16px;
+  }
+  .group-label.financeiro{background:#EDEBFA;color:var(--roxo);}
+  .group-label.coop{background:#E7F6F3;color:var(--turquesa-dark);}
+  .group-label.benchmark{background:#F1F6E3;color:#5A7A12;}
+
+  .trend-card{
+    background:#fff;
+    border:1px solid var(--border-soft);
+    border-radius:var(--radius);
+    padding:24px 26px;
+    margin-bottom:18px;
+    box-shadow:var(--shadow);
+  }
+  .trend-card h3{font-size:17px;margin:0 0 14px;color:var(--verde-escuro);font-weight:700;line-height:1.4;}
+  .trend-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;margin-bottom:14px;}
+  .trend-field-label{font-size:10.5px;text-transform:uppercase;letter-spacing:0.6px;color:var(--text-faint);font-weight:700;margin-bottom:3px;}
+  .trend-field-value{font-size:13.5px;color:var(--text-main);}
+  .trend-field.full{grid-column:1/-1;}
+  .source-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;padding-top:14px;border-top:1px dashed var(--border-soft);}
+  .source-link{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:12.5px;font-weight:700;
+    background:var(--verde-escuro);
+    color:#fff !important;
+    padding:8px 14px;border-radius:8px;
+    text-decoration:none !important;
+    transition:background 0.15s;
+  }
+  .source-link:hover{background:var(--turquesa-dark);}
+  .source-link .arrow{font-size:12px;}
+
+  /* ======== TOPIC CARDS ======== */
+  .topic-card{
+    background:#fff;border:1px solid var(--border-soft);border-radius:var(--radius);
+    padding:22px 24px;margin-bottom:16px;
+    border-left:4px solid var(--roxo);
+  }
+  .topic-card h3{font-size:16px;margin:0 0 10px;color:var(--verde-escuro);}
+  .topic-card p{font-size:13.5px;color:var(--text-soft);margin:0 0 12px;}
+
+  /* ======== OPPORTUNITY CARDS ======== */
+  .opp-card{
+    background:#fff;border:1px solid var(--border-soft);border-radius:var(--radius);
+    padding:24px 26px;margin-bottom:16px;position:relative;
+  }
+  .opp-card.skip{opacity:0.7;border-style:dashed;}
+  .opp-number{
+    position:absolute;top:-14px;left:24px;
+    background:var(--turquesa);color:#fff;
+    font-size:12px;font-weight:800;
+    padding:4px 12px;border-radius:20px;
+  }
+  .opp-card.skip .opp-number{background:var(--text-faint);}
+  .opp-row{margin-bottom:12px;}
+  .opp-row:last-child{margin-bottom:0;}
+  .opp-label{font-size:11px;text-transform:uppercase;letter-spacing:0.6px;font-weight:800;color:var(--turquesa-dark);margin-bottom:4px;}
+  .opp-card.skip .opp-label{color:var(--text-faint);}
+  .opp-value{font-size:13.5px;color:var(--text-main);}
+  .tag-row{display:flex;gap:8px;flex-wrap:wrap;}
+  .tag{font-size:12px;font-weight:700;padding:5px 12px;border-radius:8px;background:#F1F6E3;color:#5A7A12;}
+  .tag.network{background:#FBEFE3;color:#9A5A1B;}
+
+  /* ======== REFERENCES ======== */
+  .ref-category{margin-bottom:22px;}
+  .ref-category h4{
+    font-size:12.5px;text-transform:uppercase;letter-spacing:0.8px;
+    color:var(--verde-escuro);font-weight:800;margin:0 0 10px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .ref-category h4::after{content:"";flex:1;height:1px;background:var(--border-soft);}
+  .ref-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;}
+  .ref-list li{
+    font-size:13px;
+    padding:10px 14px;
+    background:#fff;
+    border:1px solid var(--border-soft);
+    border-radius:8px;
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+  }
+  .ref-list li span.ref-name{color:var(--text-main);font-weight:600;flex:1;}
+  .ref-list li a{font-size:12px;font-weight:700;color:var(--turquesa-dark);white-space:nowrap;}
+
+  /* ======== FOOTER NOTE ======== */
+  .footer-note{
+    background:var(--verde-escuro);
+    color:#C7D8D6;
+    border-radius:var(--radius);
+    padding:26px 28px;
+    font-size:13px;
+    line-height:1.7;
+  }
+  .footer-note b{color:#fff;}
+  .footer-note a{color:var(--verde-claro);}
+
+  /* ======== RESPONSIVE ======== */
+  @media (max-width:860px){
+    .layout{grid-template-columns:1fr;}
+    .toc{position:static;flex-direction:row;overflow-x:auto;gap:8px;padding-bottom:8px;}
+    .toc-label{display:none;}
+    .toc a{white-space:nowrap;}
+    .summary-grid,.analyzed-list,.trend-meta-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:30px;}
+    .hero-meta{gap:18px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-brand">
+    <div class="topbar-logo">
+      <svg width="28" height="28" viewBox="0 0 100 100" fill="none">
+        <path d="M50 5 L90 27.5 V72.5 L50 95 L10 72.5 V27.5 Z" fill="#00AE9D"/>
+        <path d="M50 5 L90 27.5 L50 50 L10 27.5 Z" fill="#FFFFFF" opacity="0.92"/>
+      </svg>
+    </div>
+    <div>
+      <div class="topbar-title">Radar Digital Sicoob</div>
+      <div class="topbar-sub">Inteligência de marketing</div>
+    </div>
+  </div>
+  <div class="topbar-period">19 — 26 jun 2026</div>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><span class="dot"></span> Relatório de inteligência digital</div>
+    <h1>Radar Digital Sicoob</h1>
+    <p class="lede">Consolidação de tendências, concorrência e oportunidades de marketing com base em fontes verificáveis — cada informação neste relatório pode ser conferida na publicação original.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Período analisado</div>
+        <div class="hero-meta-value">19 a 26 de junho de 2026</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Data da pesquisa</div>
+        <div class="hero-meta-value">26 de junho de 2026</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Fontes verificadas</div>
+        <div class="hero-meta-value">14 publicações originais</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Plataformas monitoradas</div>
+        <div class="hero-meta-value">5 redes sociais</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="integrity-banner">
+  <div class="integrity-icon">&#10003;</div>
+  <div class="integrity-text">
+    <b>Padrão de rastreabilidade:</b> toda informação deste relatório possui fonte, data e link de consulta verificável. Itens sem comprovação foram descartados — não fazem parte deste documento. Veja a nota completa na seção 7.
+  </div>
+</div>
+
+<div class="layout">
+
+  <nav class="toc" id="toc">
+    <div class="toc-label">Neste relatório</div>
+    <a href="#resumo">1. Resumo da pesquisa</a>
+    <a href="#analisado">2. O que foi analisado</a>
+    <a href="#trends">3. Trends da semana</a>
+    <a href="#topicos">4. Trend topics</a>
+    <a href="#oportunidades">5. Oportunidades</a>
+    <a href="#referencias">6. Referências</a>
+    <a href="#metodologia">7. Metodologia</a>
+  </nav>
+
+  <div class="content">
+
+    <section id="resumo">
+      <div class="section-head"><div class="section-num">1</div><h2>Resumo da pesquisa</h2></div>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <div class="label">Período analisado</div>
+          <div class="value">19 a 26 de junho de 2026</div>
+        </div>
+        <div class="summary-card">
+          <div class="label">Data da pesquisa</div>
+          <div class="value">26 de junho de 2026</div>
+        </div>
+        <div class="summary-card full">
+          <div class="label">Escopo da pesquisa</div>
+          <div class="value">Cooperativismo de crédito, bancos digitais e tradicionais, marcas referência em criatividade publicitária, novidades de plataformas sociais, inteligência artificial aplicada a marketing.</div>
+        </div>
+        <div class="summary-card full">
+          <div class="label">Plataformas monitoradas</div>
+          <div class="pill-row">
+            <span class="pill">Instagram</span><span class="pill">TikTok</span><span class="pill">LinkedIn</span><span class="pill">X (Twitter)</span><span class="pill">YouTube</span>
+          </div>
+        </div>
+        <div class="summary-card full">
+          <div class="label">Segmentos pesquisados</div>
+          <div class="pill-row">
+            <span class="pill alt">Mercado financeiro</span><span class="pill alt">Cooperativismo</span><span class="pill alt">Marketing digital</span><span class="pill alt">Inteligência artificial</span><span class="pill alt">Benchmarks de outros setores</span>
+          </div>
+        </div>
+      </div>
+      <div class="note-box">
+        <b>Observação metodológica:</b> este relatório segue a Diretriz para Geração do Radar Digital. Toda informação possui fonte verificável e link de consulta. Itens que não puderam ser confirmados por fonte confiável foram descartados.
+      </div>
+    </section>
+
+    <section id="analisado">
+      <div class="section-head"><div class="section-num">2</div><h2>O que foi analisado</h2></div>
+      <div class="analyzed-list">
+        <div class="analyzed-item"><span class="dot"></span>Sicoob — cooperativas singulares</div>
+        <div class="analyzed-item"><span class="dot"></span>Sicredi — institucional e regionais</div>
+        <div class="analyzed-item"><span class="dot"></span>Bancos digitais (Nubank, Itaú)</div>
+        <div class="analyzed-item"><span class="dot"></span>Netflix, Duolingo, Domino's UK</div>
+        <div class="analyzed-item"><span class="dot"></span>Newsroom oficial da Anthropic</div>
+        <div class="analyzed-item"><span class="dot"></span>Veículos especializados em marketing</div>
+        <div class="analyzed-item"><span class="dot"></span>Imprensa regional de cooperativismo</div>
+      </div>
+      <div class="note-box">
+        Não foram localizadas publicações institucionais relevantes do Sicoob nacional, Cresol ou Unicred dentro da janela analisada que atendessem aos critérios de comprovação da diretriz. Bancos tradicionais (Itaú, Bradesco, Santander, C6, Caixa) não apresentaram campanhas rastreáveis nesta janela específica.
+      </div>
+    </section>
+
+    <section id="trends">
+      <div class="section-head"><div class="section-num">3</div><h2>Principais trends da semana</h2></div>
+
+      <span class="group-label financeiro">Mercado financeiro</span>
+      <div class="trend-card">
+        <h3>Nubank ativa campanha "Sinal de sorte é contar com o Nubank" para a Copa do Mundo</h3>
+        <div class="trend-meta-grid">
+          <div class="trend-field full">
+            <div class="trend-field-label">Resumo</div>
+            <div class="trend-field-value">Campanha vinculando a Copa do Mundo a ofertas de até 50% em produtos Samsung (Galaxy e TVs), parcelamento em 18x sem juros via NuPay, e internet adicional via NuCel para redes sociais e WhatsApp ilimitado. Vigência: 11 de junho a 19 de julho de 2026.</div>
+          </div>
+          <div class="trend-field">
+            <div class="trend-field-label">Por que chamou atenção</div>
+            <div class="trend-field-value">Conecta o produto financeiro diretamente ao momento cultural, criando utilidade prática em vez de apenas associação de marca.</div>
+          </div>
+          <div class="trend-field">
+            <div class="trend-field-label">Quem utilizou</div>
+            <div class="trend-field-value">Nubank, em parceria com Samsung Brasil.</div>
+          </div>
+          <div class="trend-field">
+            <div class="trend-field-label">Formato</div>
+            <div class="trend-field-value">Campanha de ofertas com cobertura editorial.</div>
+          </div>
+        </div>
+        <div class="source-links">
+          <a class="source-link" href="https://www.cidademarketing.com.br/marketing/2026/06/02/nubank-lanca-campanha-para-a-copa-do-mundo-com-ofertas-exclusivas-em-produtos-samsung/" target="_blank" rel="noopener">Ver fonte original <span class="arrow">&#8599;</span></a>
+        </div>
+      </div>
+
+      <span class="group-label coop">Cooperativismo</span>
+      <div class="trend-card">
+        <h3>Sicredi firma parceria com Governo de Mato Grosso do Sul para levar educação financeira às escolas estaduais</h3>
+        <div class="trend-meta-grid">
+          <div class="trend-field full">
+            <div class="trend-field-label">Resumo</div>
+            <div class="trend-field-value">Em 15/06/2026, Fundação Sicredi e Secretaria de Educação de MS firmaram acordo para ampliar os programas "A União Faz a Vida", "Finanças na Mochila" e "Cooperativas Escolares" na rede estadual de ensino.</div>
+          </div>
+          <div class="trend-field">
+            <div class="trend-field-label">Por que chamou atenção</div>
+            <div class="trend-field-value">Mostra cooperativa concorrente transformando educação financeira em ativo institucional de longo prazo, vinculado a impacto social mensurável.</div>
+          </div>
+          <div class="trend-field">
+            <div class="trend-field-label">Quem utilizou</div>
+            <div class="trend-field-value">Sicredi (via Fundação Sicredi) e Governo do Estado de MS.</div>
+          </div>
+          <div class="trend-field">
+            <div class="trend-field-label">Formato</div>
+            <div class="trend-field-value">Acordo institucional com cobertura de imprensa regional.</div>
+          </div>
+        </div>
+        <div class="source-links">
+          <a class="source-link" href="https://www.sindifisco-ms.org.br/educacao-financeira-cooperativismo-e-protagonismo-juvenil-ganham-espaco-nas-escolas-estaduais/" target="_blank" rel="noopener">Fonte 1 — Sindifisco-MS <span class="arrow">&#8599;</span></a>
+          <a class="source-link" href="https://rotabioceanica.com.br/2026/06/ms-educacao-financeira-cooperativismo-e-protagonismo-juvenil-ganham-espaco-nas-escolas-estaduais/" target="_blank" rel="noopener">Fonte 2 — Rota Bioceânica <span class="arrow">&#8599;</span></a>
+        </div>
+      </div>
+
+      <div class="trend-card">
+        <h3>Summit Sicoob Oestecredi reúne 800 pessoas para celebrar 15 anos no Rio Grande do Sul</h3>
+        <div class="trend-meta-grid">
+          <div class="trend-field full">
+            <div class="trend-field-label">Resumo</div>
+            <div class="trend-field-value">Em 22/06/2026, a Sicoob Oestecredi realizou o "Summit Sicoob" na URI (Frederico Westphalen/RS), reunindo cerca de 800 empresários, cooperados e autoridades, com palestras sobre estratégia e economia.</div>
+          </div>
+          <div class="trend-field">
+            <div class="trend-field-label">Por que chamou atenção</div>
+            <div class="trend-field-value">Evento institucional do próprio Sistema Sicoob, com escala relevante e formato replicável para outras regionais.</div>
+          </div>
+          <div class="trend-field">
+            <div class="trend-field-label">Quem utilizou</div>
+            <div class="trend-field-value">Sicoob Oestecredi (cooperativa singular filiada).</div>
+          </div>
+          <div class="trend-field">
+            <div class="trend-field-label">Formato</div>
+            <div class="trend-field-value">Evento presencial com cobertura jornalística local.</div>
+          </div>
+        </div>
+        <div class="source-links">
+          <a class="source-link" href="https://www.oaltouruguai.com.br/noticia/summit-sicoob-reune-cerca-de-800-pessoas/" target="_blank" rel="noopener">Ver fonte original <span class="arrow">&#8599;</span></a>
+        </div>
+      </div>
+
+      <span class="group-label benchmark">Benchmarks de outros setores</span>
+      <div class="trend-card">
+        <h3>Netflix Brasil e Duolingo aproveitam meme do jogador Endrick na Copa do Mundo em tempo real</h3>
+        <div class="trend-meta-grid">
+          <div class="trend-field full">
+            <div class="trend-field-label">Resumo</div>
+            <div class="trend-field-value">Em 22/06/2026, após Endrick não entrar em campo contra Marrocos, gerando onda de memes, marcas como Netflix Brasil (TikTok), Duolingo (X) e Domino's UK (X) publicaram conteúdo de humor em tempo real. A Netflix brincou que o técnico Ancelotti escolheria o personagem "Stuart Little" antes de Endrick.</div>
+          </div>
+          <div class="trend-field">
+            <div class="trend-field-label">Por que chamou atenção</div>
+            <div class="trend-field-value">Exemplo claro de real-time marketing replicável — reação a um acontecimento cultural em poucas horas, sem produção elaborada.</div>
+          </div>
+          <div class="trend-field">
+            <div class="trend-field-label">Quem utilizou</div>
+            <div class="trend-field-value">Netflix Brasil, Duolingo Brasil, Domino's UK.</div>
+          </div>
+          <div class="trend-field">
+            <div class="trend-field-label">Formato</div>
+            <div class="trend-field-value">Vídeo curto (TikTok) e post de texto/imagem (X).</div>
+          </div>
+        </div>
+        <div class="source-links">
+          <a class="source-link" href="https://www.tiktok.com/@netflixbrasil/video/7653187525632068885" target="_blank" rel="noopener">Vídeo Netflix Brasil <span class="arrow">&#8599;</span></a>
+          <a class="source-link" href="https://x.com/DuolingoBrasil/status/2068150898270830732" target="_blank" rel="noopener">Post Duolingo Brasil <span class="arrow">&#8599;</span></a>
+          <a class="source-link" href="https://gkpb.com.br/193474/endrick-meme-copa-do-mundo/" target="_blank" rel="noopener">Matéria completa (GKPB) <span class="arrow">&#8599;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="topicos">
+      <div class="section-head"><div class="section-num">4</div><h2>Trend topics</h2></div>
+
+      <div class="topic-card">
+        <h3>Suspensão dos modelos Claude Fable 5 e Mythos 5 por diretiva de controle de exportação dos EUA</h3>
+        <p>A Anthropic lançou em 9/06/2026 o Claude Fable 5 (acesso geral) e Mythos 5 (acesso restrito). Em 12/06/2026, o governo dos EUA emitiu diretiva de controle de exportação suspendendo o acesso de estrangeiros a ambos os modelos por motivo de segurança nacional. A Anthropic optou por desativar globalmente os dois modelos.</p>
+        <div class="source-links">
+          <a class="source-link" href="https://macmagazine.com.br/post/2026/06/09/anthropic-lanca-modelos-avancados-fable-5-e-mythos-5-para-o-claude/" target="_blank" rel="noopener">Ver cobertura (MacMagazine) <span class="arrow">&#8599;</span></a>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <h3>Mudança nas métricas de relevância dos algoritmos do Instagram e TikTok — de curtidas para retenção e compartilhamento</h3>
+        <p>Em 2026, os algoritmos de Instagram e TikTok priorizam sinais comportamentais (retenção, rewatch, compartilhamentos, visitas ao perfil) em vez de contagem de seguidores ou curtidas. Hashtags passaram a funcionar como categorização secundária, não como alavanca de alcance.</p>
+        <div class="source-links">
+          <a class="source-link" href="https://rafaelterra.com.br/guia-algoritmo-instagram-2026/" target="_blank" rel="noopener">Guia Rafael Terra <span class="arrow">&#8599;</span></a>
+          <a class="source-link" href="https://advivo.com.br/marketing/como-funciona-o-algoritmo-do-instagram-e-do-tiktok-hoje-em-2026/" target="_blank" rel="noopener">Análise Advivo <span class="arrow">&#8599;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="oportunidades">
+      <div class="section-head"><div class="section-num">5</div><h2>Oportunidades para o Sicoob</h2></div>
+
+      <div class="opp-card">
+        <div class="opp-number">Oportunidade 1</div>
+        <div class="opp-row">
+          <div class="opp-label">Insight</div>
+          <div class="opp-value">Cooperativas concorrentes (Sicredi) estão transformando educação financeira em parceria institucional formal com poder público, e não apenas em conteúdo de rede social.</div>
+        </div>
+        <div class="opp-row">
+          <div class="opp-label">Por que faz sentido</div>
+          <div class="opp-value">A parceria do Sicredi com o Governo de MS gera cobertura de imprensa espontânea sem custo de mídia paga, além de fortalecer a marca como agente de desenvolvimento educacional regional — alinhado ao DNA cooperativista do Sicoob.</div>
+        </div>
+        <div class="opp-row">
+          <div class="opp-label">Formato sugerido</div>
+          <div class="opp-value">Release institucional + vídeo documental curto sobre eventual parceria educacional já existente do Sicoob com secretarias de educação (verificar internamente se já existe parceria a potencializar).</div>
+        </div>
+        <div class="opp-row">
+          <div class="tag-row">
+            <span class="tag network">LinkedIn</span><span class="tag network">Instagram</span>
+          </div>
+        </div>
+        <div class="source-links">
+          <a class="source-link" href="https://www.sindifisco-ms.org.br/educacao-financeira-cooperativismo-e-protagonismo-juvenil-ganham-espaco-nas-escolas-estaduais/" target="_blank" rel="noopener">Referência utilizada <span class="arrow">&#8599;</span></a>
+        </div>
+      </div>
+
+      <div class="opp-card">
+        <div class="opp-number">Oportunidade 2</div>
+        <div class="opp-row">
+          <div class="opp-label">Insight</div>
+          <div class="opp-value">Marcas referência (Netflix, Duolingo) capturaram alto engajamento orgânico durante a Copa do Mundo reagindo a um momento cultural específico em poucas horas, com produção simples.</div>
+        </div>
+        <div class="opp-row">
+          <div class="opp-label">Por que faz sentido</div>
+          <div class="opp-value">O calendário da Copa do Mundo 2026 segue em curso; momentos de torcida e memes continuarão surgindo. Uma cooperativa pode aproveitar ganchos culturais para humanizar a marca, com estrutura de aprovação ágil.</div>
+        </div>
+        <div class="opp-row">
+          <div class="opp-label">Formato sugerido</div>
+          <div class="opp-value">Posts reativos de baixo custo (texto + imagem ou vídeo curto gravado no celular), validados rapidamente pelo Jurídico/Comunicação, evitando associação a clubes, federações ou jogadores sem direito de uso de imagem.</div>
+        </div>
+        <div class="opp-row">
+          <div class="tag-row">
+            <span class="tag network">Instagram</span><span class="tag network">X</span>
+          </div>
+        </div>
+        <div class="source-links">
+          <a class="source-link" href="https://gkpb.com.br/193474/endrick-meme-copa-do-mundo/" target="_blank" rel="noopener">Referência utilizada <span class="arrow">&#8599;</span></a>
+        </div>
+      </div>
+
+      <div class="opp-card">
+        <div class="opp-number">Oportunidade 3</div>
+        <div class="opp-row">
+          <div class="opp-label">Insight</div>
+          <div class="opp-value">Os algoritmos de Instagram e TikTok em 2026 não priorizam mais contagem de seguidores, e sim retenção, rewatch e compartilhamento — o que nivela o jogo entre contas grandes e pequenas.</div>
+        </div>
+        <div class="opp-row">
+          <div class="opp-label">Por que faz sentido</div>
+          <div class="opp-value">Cooperativas singulares do Sicoob com poucos seguidores têm a mesma chance de alcance orgânico que contas grandes, desde que produzam bom gancho nos primeiros segundos. Argumento direto para orientar regionais a investir em roteiro, não em crescimento artificial de seguidores.</div>
+        </div>
+        <div class="opp-row">
+          <div class="opp-label">Formato sugerido</div>
+          <div class="opp-value">Guia interno de boas práticas de roteiro para Reels/TikTok destinado às equipes de comunicação das cooperativas singulares, com foco no gancho dos 2-3 primeiros segundos.</div>
+        </div>
+        <div class="opp-row">
+          <div class="tag-row">
+            <span class="tag network">Instagram Reels</span><span class="tag network">TikTok</span>
+          </div>
+        </div>
+        <div class="source-links">
+          <a class="source-link" href="https://rafaelterra.com.br/guia-algoritmo-instagram-2026/" target="_blank" rel="noopener">Referência utilizada <span class="arrow">&#8599;</span></a>
+        </div>
+      </div>
+
+      <div class="opp-card skip">
+        <div class="opp-number">Oportunidade 4 — monitoramento</div>
+        <div class="opp-row">
+          <div class="opp-label">Insight</div>
+          <div class="opp-value">A Anthropic lançou e teve suspenso, na mesma semana, seu modelo mais avançado (Claude Fable 5/Mythos 5) por diretiva de exportação dos EUA — evento amplamente coberto pela imprensa de tecnologia brasileira.</div>
+        </div>
+        <div class="opp-row">
+          <div class="opp-label">Por que faz sentido</div>
+          <div class="opp-value">Mostra como o ciclo de notícias sobre IA está volátil e como instituições financeiras que comunicam sobre uso de IA precisam ser precisas, evitando citar capacidades ou modelos que podem mudar de disponibilidade rapidamente. Não há oportunidade de conteúdo direta — citado como alerta de monitoramento, não como recomendação de produção.</div>
+        </div>
+        <div class="opp-row">
+          <div class="opp-label">Formato sugerido</div>
+          <div class="opp-value">Não recomendado para produção de conteúdo nesta semana. Apenas monitoramento contínuo.</div>
+        </div>
+        <div class="source-links">
+          <a class="source-link" href="https://macmagazine.com.br/post/2026/06/09/anthropic-lanca-modelos-avancados-fable-5-e-mythos-5-para-o-claude/" target="_blank" rel="noopener">Referência utilizada <span class="arrow">&#8599;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="referencias">
+      <div class="section-head"><div class="section-num">6</div><h2>Referências pesquisadas</h2></div>
+
+      <div class="ref-category">
+        <h4>Mercado financeiro</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">Nubank — Campanha Copa do Mundo</span><a href="https://www.cidademarketing.com.br/marketing/2026/06/02/nubank-lanca-campanha-para-a-copa-do-mundo-com-ofertas-exclusivas-em-produtos-samsung/" target="_blank" rel="noopener">Abrir &#8599;</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-category">
+        <h4>Cooperativismo</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">Sicredi + Governo MS (Sindifisco)</span><a href="https://www.sindifisco-ms.org.br/educacao-financeira-cooperativismo-e-protagonismo-juvenil-ganham-espaco-nas-escolas-estaduais/" target="_blank" rel="noopener">Abrir &#8599;</a></li>
+          <li><span class="ref-name">Sicredi + Governo MS (Rota Bioceânica)</span><a href="https://rotabioceanica.com.br/2026/06/ms-educacao-financeira-cooperativismo-e-protagonismo-juvenil-ganham-espaco-nas-escolas-estaduais/" target="_blank" rel="noopener">Abrir &#8599;</a></li>
+          <li><span class="ref-name">Summit Sicoob Oestecredi 15 anos</span><a href="https://www.oaltouruguai.com.br/noticia/summit-sicoob-reune-cerca-de-800-pessoas/" target="_blank" rel="noopener">Abrir &#8599;</a></li>
+          <li><span class="ref-name">Sicoob Credisul na Expocol 2026</span><a href="https://www.rondoniaovivo.com/noticia/interior/2026/06/24/expocol-2026-sicoob-credisul-prospecta-r-26-milhoes-e-fortalece-setor-leiteiro-em-evento.html" target="_blank" rel="noopener">Abrir &#8599;</a></li>
+          <li><span class="ref-name">Sicoob Arenito — alerta golpes digitais</span><a href="https://umuarama.portaldacidade.com/noticias/economia/sicoob-arenito-alerta-cooperados-sobre-aumento-de-golpes-digitais-e-reforca-medidas-3019" target="_blank" rel="noopener">Abrir &#8599;</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-category">
+        <h4>Benchmark</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">Endrick / Netflix / Duolingo / Domino's UK</span><a href="https://gkpb.com.br/193474/endrick-meme-copa-do-mundo/" target="_blank" rel="noopener">Abrir &#8599;</a></li>
+          <li><span class="ref-name">Vídeo Netflix Brasil (TikTok)</span><a href="https://www.tiktok.com/@netflixbrasil/video/7653187525632068885" target="_blank" rel="noopener">Abrir &#8599;</a></li>
+          <li><span class="ref-name">Post Duolingo Brasil (X)</span><a href="https://x.com/DuolingoBrasil/status/2068150898270830732" target="_blank" rel="noopener">Abrir &#8599;</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-category">
+        <h4>Marketing digital / Plataformas</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">Guia do algoritmo Instagram 2026 (Rafael Terra)</span><a href="https://rafaelterra.com.br/guia-algoritmo-instagram-2026/" target="_blank" rel="noopener">Abrir &#8599;</a></li>
+          <li><span class="ref-name">Algoritmo Instagram/TikTok 2026 (Advivo)</span><a href="https://advivo.com.br/marketing/como-funciona-o-algoritmo-do-instagram-e-do-tiktok-hoje-em-2026/" target="_blank" rel="noopener">Abrir &#8599;</a></li>
+          <li><span class="ref-name">Atualizações Meta/Facebook 23/06/2026 (SocialBee)</span><a href="https://socialbee.com/blog/facebook-updates/" target="_blank" rel="noopener">Abrir &#8599;</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-category">
+        <h4>Inteligência artificial</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">Lançamento e suspensão Claude Fable 5/Mythos 5</span><a href="https://macmagazine.com.br/post/2026/06/09/anthropic-lanca-modelos-avancados-fable-5-e-mythos-5-para-o-claude/" target="_blank" rel="noopener">Abrir &#8599;</a></li>
+          <li><span class="ref-name">Crescimento da Anthropic frente ao governo dos EUA (Exame)</span><a href="https://exame.com/inteligencia-artificial/anthropic-do-claude-cresceu-tao-rapido-que-virou-um-problema-para-o-governo-dos-eua/" target="_blank" rel="noopener">Abrir &#8599;</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="metodologia">
+      <div class="section-head"><div class="section-num">7</div><h2>Nota de transparência metodológica</h2></div>
+      <div class="footer-note">
+        Este relatório prioriza <b>confiabilidade sobre volume</b>. Diversos temas previstos nos blocos de pesquisa padrão (Sicoob nacional, Cresol, Unicred, Ailos, bancos tradicionais como Itaú, Bradesco e Santander, marcas como Spotify, iFood e Magalu) <b>não geraram itens neste relatório</b> porque não foi possível localizar, na janela de 19 a 26 de junho de 2026, publicações com fonte, data e link que atendessem ao critério da diretriz: <i>"Eu consigo mostrar exatamente onde encontrei essa informação?"</i>
+        <br><br>
+        Caso a equipe de Marketing tenha conhecimento de campanhas específicas do Sicoob ou de concorrentes não cobertas pela imprensa especializada, recomenda-se fornecer os links diretamente para incorporação em uma atualização deste Radar.
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script>
+  const links = document.querySelectorAll('.toc a');
+  const sections = document.querySelectorAll('section');
+  function onScroll(){
+    let current = sections[0].id;
+    sections.forEach(sec=>{
+      const rect = sec.getBoundingClientRect();
+      if(rect.top <= 140){ current = sec.id; }
+    });
+    links.forEach(l=>{
+      l.classList.toggle('active', l.getAttribute('href') === '#'+current);
+    });
+  }
+  document.addEventListener('scroll', onScroll);
+  onScroll();
+  links.forEach(l=>{
+    l.addEventListener('click', e=>{
+      e.preventDefault();
+      const id = l.getAttribute('href').slice(1);
+      document.getElementById(id).scrollIntoView({behavior:'smooth'});
+    });
+  });
+</script>
+
+</body>
+</html>
